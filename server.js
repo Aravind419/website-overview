@@ -9,9 +9,11 @@ const app = express();
 // Update CORS configuration
 app.use(
   cors({
-    origin: ['https://yourusername.github.io', 'http://localhost:3000'],
+    origin: true,
+    credentials: true,
     methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type']
+    allowedHeaders: ['Content-Type'],
+    exposedHeaders: ['Access-Control-Allow-Private-Network']
   })
 );
 
