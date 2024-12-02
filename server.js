@@ -5,7 +5,22 @@ const cheerio = require('cheerio');
 const favicon = require('favicon-getter').default;
 
 const app = express();
-app.use(cors());
+
+// Update CORS configuration
+app.use(cors({
+    origin: true,
+    credentials: true,
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type'],
+    exposedHeaders: ['Access-Control-Allow-Private-Network']
+}));
+
+// Add middleware to handle preflight requests
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Private-Network', 'true');
+    next();
+});
+
 app.use(express.json());
 app.use(express.static('public'));
 
