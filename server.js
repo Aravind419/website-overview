@@ -9,11 +9,9 @@ const app = express();
 // Update CORS configuration
 app.use(
   cors({
-    origin: true,
-    credentials: true,
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type'],
-    exposedHeaders: ['Access-Control-Allow-Private-Network']
+    origin: ["https://Aravind419.github.io", "http://localhost:3000"],
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
   })
 );
 
