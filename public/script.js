@@ -19,7 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
     overviewSection.style.display = "none";
 
     try {
-      const response = await fetch("http://localhost:3000/api/analyze", {
+      const apiUrl =
+        import.meta.env.VITE_API_URL || "https://website-overview.vercel.app/";
+      const response = await fetch(`${apiUrl}/api/analyze`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
